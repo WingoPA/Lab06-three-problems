@@ -8,6 +8,9 @@
 * practices decisions and one of the four loops.
 */
 
+
+// The Menu
+
 int choice = 0;
 
 System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
@@ -24,8 +27,14 @@ do
 
     if(choice == 1 || choice == 4)
     {
-        
-        System.Console.WriteLine("Option 1:");
+        int score = 0;
+        System.Console.WriteLine("=== Exercise 1: The Grade Checker ===");
+        Console.Write("Score: "); score = Convert.ToInt32(Console.ReadLine());
+
+        while(score >= 0)
+        {
+            
+        }
     }
 
     if(choice == 2 || choice == 4)
