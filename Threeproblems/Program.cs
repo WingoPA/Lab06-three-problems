@@ -11,34 +11,32 @@
 int choice = 0;
 
 System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
-System.Console.WriteLine("1. The Grade Checker");
-System.Console.WriteLine("2. The Grade Checker");
-System.Console.WriteLine("3. The Grade Checker");
-System.Console.WriteLine("4. The Grade Checker");
-System.Console.WriteLine("5. The Grade Checker");
-
-
-Console.Write("Choose 1 through 5: "); choice = Convert.ToInt32(Console.ReadLine()); 
 
 do
 {
+    System.Console.WriteLine("1. The Grade Checker");
+    System.Console.WriteLine("2. The Dice Table");
+    System.Console.WriteLine("3. The Score Report");
+    System.Console.WriteLine("4. All three");
+    System.Console.WriteLine("5. Quit");
+    Console.Write("Choose 1 through 5: "); choice = Convert.ToInt32(Console.ReadLine()); 
+    Console.Clear();
+
     if(choice == 1 || choice == 4)
     {
-        Console.Clear();
+        
         System.Console.WriteLine("Option 1:");
     }
 
     if(choice == 2 || choice == 4)
     {
-        Console.Clear();
         System.Console.WriteLine("Option 2: ");
     }
 
     if(choice == 3 || choice == 4)
     {
-        Console.Clear();
         System.Console.WriteLine("Option 3: ");
     }
-}while(choice != 5);
+} while(choice != 5);
 
 System.Console.WriteLine("Goodbye. ");
