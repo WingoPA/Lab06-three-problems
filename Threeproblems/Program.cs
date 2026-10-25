@@ -22,18 +22,44 @@ do
     System.Console.WriteLine("3. The Score Report");
     System.Console.WriteLine("4. All three");
     System.Console.WriteLine("5. Quit");
-    Console.Write("Choose 1 through 5: "); choice = Convert.ToInt32(Console.ReadLine()); 
+    Console.Write("Choose 1 through 5: "); 
+    choice = Convert.ToInt32(Console.ReadLine()); 
     Console.Clear();
+    
 
     if(choice == 1 || choice == 4)
     {
         int score = 0;
         System.Console.WriteLine("=== Exercise 1: The Grade Checker ===");
-        Console.Write("Score: "); score = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Score: "); 
+        score = Convert.ToInt32(Console.ReadLine());
 
-        while(score >= 0)
+        while(score >= 0 || score <= 100)
         {
-            
+            while(score < 0 || score > 100)
+        {
+            System.Console.WriteLine("A score must be between 0 and 100");
+            Console.Write("Score: "); 
+            score = Convert.ToInt32(Console.ReadLine());
+        }
+            if(score >= 90)
+            {
+             System.Console.WriteLine(score.ToString() + " earns an A");   
+            }else if(score >= 80)
+            {
+            System.Console.WriteLine(score.ToString() + " earns a B");  
+            }else if(score >= 70)
+            {
+            System.Console.WriteLine(score.ToString() + " earns a C");  
+            }else if(score >= 60)
+            {
+            System.Console.WriteLine(score.ToString() + " earns a D ");  
+            }else if(score < 60)
+            {
+            System.Console.WriteLine(score.ToString() + " earns an F ");  
+            }
+            System.Console.WriteLine("");
+            break;
         }
     }
 
