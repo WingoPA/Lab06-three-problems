@@ -27,12 +27,16 @@ string rollAgain;
 
 Random rng = new Random(4000);
 
-
-System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
+int[] scores = new int[5];
+int total = 0;
+int highest = scores[0];
+int passingCount = 0;
 
 do
 {
     System.Console.WriteLine("");
+    System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
+
     System.Console.WriteLine("1. The Grade Checker");
     System.Console.WriteLine("2. The Dice Table");
     System.Console.WriteLine("3. The Score Report");
@@ -40,11 +44,12 @@ do
     System.Console.WriteLine("5. Quit");
     Console.Write("Choose 1 through 5: "); 
     choice = Convert.ToInt32(Console.ReadLine()); 
-    Console.Clear();
+   
     
 //Grade checker
     if(choice == 1 || choice == 4)
     {
+        System.Console.WriteLine("");
         System.Console.WriteLine("=== Exercise 1: The Grade Checker ===");
         Console.Write("Score: "); 
         score = Convert.ToInt32(Console.ReadLine());
@@ -73,7 +78,7 @@ do
             {
             System.Console.WriteLine(score.ToString() + " earns an F ");  
             }
-            System.Console.WriteLine("");
+
             break;
         }
     }
@@ -81,6 +86,7 @@ do
     // The Dice Table
     if(choice == 2 || choice == 4)
     {
+        System.Console.WriteLine("");
         System.Console.WriteLine("=== Exercirse 2: The Dice Table ===");
         do
         {
@@ -90,6 +96,22 @@ do
 
             numb++;
             Console.Write("Roll " + numb + ": " + numOne + " and " + numTwo + ", total " + numThree);
+
+            if(numOne == 1 && numTwo == 1)
+            {
+                Console.Write(" Snake eyes");
+            }else if(numOne  == numTwo)
+
+            {
+                Console.Write(" Doubles");
+            }
+
+            if(numThree == 7 || numThree == 11)
+            {
+                Console.Write(" A winner.");
+            }
+
+
             Console.Write(" Roll again? (y/n): " );
             rollAgain = Console.ReadLine().ToLower();
 
@@ -103,11 +125,41 @@ do
         
         System.Console.WriteLine("You rolled " + numb + " times and won " + winnings);
     }
-
+    // The score report
     if(choice == 3 || choice == 4)
     {
-        System.Console.WriteLine("Option 3: ");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+        for(int i = 0; i < scores.Length; i++)
+        {
+            Console.Write($"Score {i + 1}: ");
+            scores[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        foreach(int  scored in scores)
+        {
+            total += scored;
+
+            if(scored > highest)
+            {
+                highest = scored;
+            }
+
+            if(scored >= 60)
+            {
+                passingCount++;
+            }
+        }
+
+        double average = (double)total / scores.Length;
+
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Scores entered: " + scores.Length.ToString());
+        System.Console.WriteLine($"Total: {total}");
+        System.Console.WriteLine($"Average: {average:F1}");
+        System.Console.WriteLine($"Highest: {highest}");
+        System.Console.WriteLine($"Passing: {passingCount} of 5");
     }
 } while(choice != 5);
-
+System.Console.WriteLine("");
 System.Console.WriteLine("Goodbye. ");
