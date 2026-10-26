@@ -11,12 +11,28 @@
 
 // The Menu
 
+using System.ComponentModel;
+using System.Reflection.Metadata;
+
 int choice = 0;
+int score = 0;
+int numb = 0;
+
+int numOne;
+int numTwo;
+int numThree;
+int winnings = 0;
+
+string rollAgain; 
+
+Random rng = new Random(4000);
+
 
 System.Console.WriteLine("=== CSCI 1250 Lab 06 ===");
 
 do
 {
+    System.Console.WriteLine("");
     System.Console.WriteLine("1. The Grade Checker");
     System.Console.WriteLine("2. The Dice Table");
     System.Console.WriteLine("3. The Score Report");
@@ -26,10 +42,9 @@ do
     choice = Convert.ToInt32(Console.ReadLine()); 
     Console.Clear();
     
-
+//Grade checker
     if(choice == 1 || choice == 4)
     {
-        int score = 0;
         System.Console.WriteLine("=== Exercise 1: The Grade Checker ===");
         Console.Write("Score: "); 
         score = Convert.ToInt32(Console.ReadLine());
@@ -63,9 +78,30 @@ do
         }
     }
 
+    // The Dice Table
     if(choice == 2 || choice == 4)
     {
-        System.Console.WriteLine("Option 2: ");
+        System.Console.WriteLine("=== Exercirse 2: The Dice Table ===");
+        do
+        {
+            numOne = rng.Next(1, 7);
+            numTwo = rng.Next(1, 7);
+            numThree = numOne + numTwo;
+
+            numb++;
+            Console.Write("Roll " + numb + ": " + numOne + " and " + numTwo + ", total " + numThree);
+            Console.Write(" Roll again? (y/n): " );
+            rollAgain = Console.ReadLine().ToLower();
+
+            if(numThree == 7)
+            {
+                winnings++;
+            }
+
+        }while(rollAgain == "y" );
+
+        
+        System.Console.WriteLine("You rolled " + numb + " times and won " + winnings);
     }
 
     if(choice == 3 || choice == 4)
