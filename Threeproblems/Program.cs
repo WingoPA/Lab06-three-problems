@@ -46,7 +46,7 @@ do
     choice = Convert.ToInt32(Console.ReadLine()); 
    
     
-//Grade checker
+    //Grade checker
     if(choice == 1 || choice == 4)
     {
         System.Console.WriteLine("");
@@ -54,6 +54,7 @@ do
         Console.Write("Score: "); 
         score = Convert.ToInt32(Console.ReadLine());
 
+        
         while(score >= 0 || score <= 100)
         {
             while(score < 0 || score > 100)
@@ -124,6 +125,7 @@ do
 
         
         System.Console.WriteLine("You rolled " + numb + " times and won " + winnings);
+        numb = 0;
     }
     // The score report
     if(choice == 3 || choice == 4)
